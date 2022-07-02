@@ -1,0 +1,47 @@
+/* GENERAL STYLING */
+main {
+  background-color: #191631;
+  font-family: "Work Sans";
+}
+
+.container {
+  background-color: #fab005;
+}
+
+.header {
+  background-color: #191631;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* STARTER PAGE */
+h1 {
+  color: #fff;
+  font-size: 3.5rem;
+}
+
+.instructions {
+  color: #fff;
+  align-items: center;
+}
+
+#question {
+  color: #fff;
+  font-size: 1.2rem;
+  background-color: #191631;
+  border-radius: 2rem;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* BUTTONS */
+.btn {
+  background-color: #ff431a;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-radius: 1rem;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}

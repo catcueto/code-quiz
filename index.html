@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<main>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather&family=Poppins&family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel = "stylesheet" href = "./assets/style.css">
+    <title>Code Quiz</title>
+  </head>
+  <body>
+    <header class="container">
+      <div class = "header">
+        <h1>Coding Quiz</h1>
+         <div class="instructions">
+          <p class="instructions-prompt">Hello there! This is a 7-question, 2-min coding quiz that will test your knowledge on JavaScript. Good luck and enjoy! </p>
+        <div class="buttons">
+          <button id="start-btn" class="start-btn btn">Start</button>
+          <button id="score-btn" class="score-btn btn">View Score</button>
+
+        </div>
+        </div>
+        </div>
+          <div id = 'question'>  Where is the correct place to insert a JavaScript file?</div>
+          <div id = "answers-container">
+            <ul id = 'answers-list'>
+              <button class = 'btn' id = "btn-1">The body section</button>
+              <br>
+              <button class = 'btn' id = "btn-2">The head section</button>
+              <br>
+              <button class = 'btn' id = "btn-3">Both the head section and the body section are correct</button>
+              <br>
+            </ul>
+            <button id="next-btn" class="next-btn btn">Next</button>
+
+          </div>
+
+              <div id = "question" class="question-class">  How to write an IF statement in JavaScript?</div>
+              <div id = "answers-container">
+                <ul id = 'answers-list'>
+                  <button class = 'btn' id = "btn-1">if x == 10 then</button>
+                  <br>
+                  <button class = 'btn' id = "btn-2">if x = 10</button>
+                  <br>
+                  <button class = 'btn' id = "btn-3"> if (x == 10)</button>
+                  <br>
+                  <button class = 'btn' id = "btn-4">if x = 10 then</button>
+                </ul>
+                <button id="next-btn" class="next-btn btn">Next</button>
+              </div>
+
+              <div id = "question" class="question-class"> How do you round the number 9.25 to the nearest
+                integer?</div>
+              <div id = "answers-container">
+                <ul id = 'answers-list'>
+                  <button class = 'btn' id = "btn-1">round(9.25)</button>
+                  <br>
+                  <button class = 'btn' id = "btn-2"> Math.rnd(9.25)</button>
+                  <br>
+                  <button class = 'btn' id = "btn-3"> Math.round(9.25)</button>
+                  <br>
+                  <button class = 'btn' id = "btn-4">rnd(9.25)</button>
+                </ul>
+                <button id="next-btn" class="next-btn btn">Next</button>
+              </div>
+    
+              <div id = "question" class="question-class"> How can you detect the client's browser name?</div>
+              <div id = "answers-container">
+                <ul id = 'answers-list'>
+                  <button class = 'btn' id = "btn-1">navigator.appName</button>
+                  <br>
+                  <button class = 'btn' id = "btn-2">client.navName</button>
+                  <br>
+                  <button class = 'btn' id = "btn-3"> browser.name</button>
+                  <br>
+                </ul>
+                <button id="next-btn" class="next-btn btn">Next</button>
+              </div>
+              <div id = "question" class="question-class">Which one out of the options below is a correct declaration of a JavaScript variable?</div>
+              <div id = "answers-container">
+                <ul id = 'answers-list'>
+                  <button class = 'btn' id = "btn-1"> variable dogName</button>
+                  <br>
+                  <button class = 'btn' id = "btn-2">v dogName</button>
+                  <br>
+                  <button class = 'btn' id = "btn-3">var-dogName</button>
+                  <br>
+                  <button class = 'btn' id = "btn-4">var dogName</button>
+                  <br>
+                </ul>
+                <button id="next-btn" class="next-btn btn">Next</button>
+              </div>
+              <div id = "question" class="question-class">Is JavaScript case-sensitive?</div>
+              <div id = "answers-container">
+                <ul id = 'answers-list'>
+                  <button class = 'btn' id = "btn-1">Yes</button>
+                  <br>
+                  <button class = 'btn' id = "btn-2">No</button>
+                  <br>
+                </ul>
+                <button id="next-btn" class="next-btn btn">Next</button>
+              </div>
+              <div id = "question" class="question-class">What is the correct way to write a JavaScript array?</div>
+              <div id = "answers-container">
+                <ul id = 'answers-list'>
+                  <button class = 'btn' id = "btn-1"> var dogBreed = 'beagle', 'boxer','boston-terrier'</button>
+                  <br>
+                  <button class = 'btn' id = "btn-2">var dogBreeds = (1:'beagle',2:'boxer',3:'boston-terrier')</button>
+                  <br>
+                  <button class = 'btn' id = "btn-3">var dogBreed = ['beagle', 'boxer', 'boston-terrier']</button>
+                  <br>
+                  <button class = 'btn' id = "btn-3"> var dogBreed = 1 = ('beagle'), 2 = ('boxer'), 3 = ('boston-terrier')</button>
+                  <br>
+                </ul>
+                <button id="finish-btn" class="finish-btn btn">Submit Scores</button>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</main>  
+</html>
