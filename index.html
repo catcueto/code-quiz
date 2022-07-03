@@ -17,10 +17,10 @@
     <header class="container">
       <!-- ELEMENTS ON CONSTANT DISPLAY -->
         <h1 class = "title" >Coding Quiz</h1>
-        <h3 class = "header-timer">Seconds Left: <span id = "secsLeft">120</span></h3>
-        <h3 class = "heaedr-score">Score: <span id="correctScore">0</span></h3>
+        <h2 class = "header-timer">Seconds Left: <span id = "secsLeft">120</span></h2>
+        <h2 class = "header-score">Score: <span id="correctAnswers">0</span></h2>
         <!-- HIDING ELEMENTS -->
-      <h3 class = "header-results hideEl">Final Score</h3>
+      <h2 class = "header-results hideEl">Final Score</h2>
     </header>
 
     <main class="container main">
@@ -33,10 +33,15 @@
         </div>
     </div>
 
+    <div class="questionSection hideEl">
+      <p>Question: <span id="question"> When was the last time you did something that makes you happy?</span></p>
+    </div>
+
+
     <form class="storeScores">
-      <label for ="textPlace">Type your initials to save your score on our website</label>
+      <label for ="textPlace">Type your initials to save your score on our website :)</label>
       <textarea id="textPlace" placeholder="Your Initials...."></textarea>
-      <button id="insertName">Enter</button>
+      <button id="submit-btn">Submit</button>
   </form>
     </form>
 
