@@ -4,6 +4,13 @@ console.log("hola");
 // STEP 1 --> DEFINE VARIABLES
 var index = 0;
 
+// var content = document.querySelector("#quizContent");
+// content.addEventListener("click", function (event){
+// if (event.target.matches(""){
+
+// })
+// })
+
 // a) questions
 var questions = [
   "Where is the correct place to insert a JavaScript file?",
@@ -18,7 +25,7 @@ var questions = [
 // b) answers
 var A = [
   "The body section",
-  "if x == 10 then",
+  "if i == 10 then",
   "round(9.25)",
   "navigator.appName",
   "variable dogName",
@@ -27,7 +34,7 @@ var A = [
 ];
 var B = [
   "The head section",
-  "if x = 10",
+  "if i = 10",
   "Math.rnd(9.25)",
   "client.navName",
   "v dogName",
@@ -36,7 +43,7 @@ var B = [
 ];
 var C = [
   "Both the head section and the body section are correct",
-  "if (x == 10)",
+  "if (i == 10)",
   "Math.round(9.25)",
   "browser.name",
   "var-dogName",
@@ -45,7 +52,7 @@ var C = [
 ];
 var D = [
   "All answers are incorrect",
-  "if x = 10 then",
+  "if i = 10 then",
   "rnd(9.25)",
   "",
   "var dogName",
@@ -53,28 +60,43 @@ var D = [
   "",
 ];
 
-// c) sections
+// c) correct answers
+var correctA = [
+  "Both the head section and the body section are correct",
+  "if (i == 10)",
+  "Math.round(9.25)",
+  "navigator.appNames",
+  "var dogName",
+  "Yes",
+  "var dogBreed = ['beagle', 'boxer', 'boston-terrier']",
+];
+
+// d) sections
 var firstPage = document.querySelector("#first-page");
 var questionSection = document.querySelector("#question-section");
 var savingScores = document.querySelector("#saving-scores");
 var finalScores = document.querySelector("#submitted-scores");
 
-// d) Header portions --> SECONDS LEFT and SCORE
-var secRemaining = document.querySelector("#secLeft"); //line 20
+// e) Header portions --> SECONDS LEFT and SCORE
+var secRemaining = document.querySelector("#secsLeft"); //line 20
+var secRunning = 120;
+
 var header = document.querySelector("#title");
 var correctScore = document.querySelector("#correctAnswers");
+var score = 0;
 
-// e) START button and instructions - only displayed on first page
+// f) START button and instructions - only displayed on first page
 var startButton = document.querySelector("#start-btn");
 var instructions = document.querySelector(".instructions");
 
-// f) hidden elements
+// g) hidden elements
 var hiddenEls = document.querySelector(".questionSection");
 var question = document.querySelector("#question");
 var btnA = document.querySelector("#btn-A");
 var btnB = document.querySelector("#btn-B");
 var btnC = document.querySelector("#btn-C");
 var btnD = document.querySelector("#btn-D");
+var answerList = document.querySelector("#answer-list");
 
 // STEP 2 --> Add functionality so some elements get removed while others get displayed
 function startQuiz() {
@@ -101,26 +123,44 @@ btnC.addEventListener("click", nextQuestion);
 btnD.addEventListener("click", nextQuestion);
 
 // When the user clicks the START button, the question page displays
-startButton.addEventListener("click", startQuiz);
+//startButton.addEventListener("click", startQuiz);
+
+// STEP 2 --> Correct or Incorrect Prompt when selecting a choice
+
+// answerList.addEventListener("click", function (event) {
+//   alert('Event"');
+//   if (event.target.matches.correctA[index] === event.target.textContent) {
+//     alert("It is correct");
+//     score++;
+//   } else {
+//     alert("Incorrect!");
+//     secRunning = secRunning - 5;
+// });
 
 // 120s timer
 startButton.addEventListener("click", function () {
-  startTimer;
+  startQuiz();
+  setInterval(function () {
+    secRunning--;
+    secRemaining.textContent = secRunning;
+
+    // when the timer hits 0
+    if ((secRunning = 0)) {
+      index = 0;
+
+      header.textContent = "Quiz Time is Over! ";
+      question.textContext =
+        "Time is up! " +
+        "You answered: " +
+        scoreCount +
+        " out of " +
+        "correctly.";
+    }
+  }, 1000);
 });
 
-function startTimer() {
-  // setInterval() calls a function at specified intervals (miliseconds)
-  var countDown = setInterval(function () {
-    secRemaining--;
-    // when the timer hits 0
-    if ((secRemaining = 0)) {
-      index = 0;
-    
-    header.textContent = "Quiz Time is Over! ";
-    question.textContext =
-      "Time is up! " + "You answered: " + scoreCount + " out of " + "correctly";
-  });
-}
+//function startTimer() {
+// setInterval() calls a function at specified intervals (miliseconds)
 
 // PSEUDOCODING //
 // 1st step - Introduction page only (title + instructions + START button). When click on START button, then I go to Question page and TIMER begins

@@ -47,11 +47,9 @@ h2 {
 /* QUESTIONS */
 #question {
   font-size: 1.2rem;
-  text-indent: 1.5rem;
   background-color: #191631;
   border-radius: 2rem;
-  padding: 0.8rem;
-  margin-bottom: 1.5rem;
+  padding: 1rem;
   font-weight: 600;
 }
 
