@@ -1,51 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <main>
-<head>
+
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content= "width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather&family=Poppins&family=Work+Sans&display=swap" rel="stylesheet">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel = "stylesheet" href = "./assets/style.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather&family=Poppins&family=Work+Sans&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Code Quiz</title>
   </head>
- 
+
   <body>
     <header class="container">
       <!-- ELEMENTS ON CONSTANT DISPLAY -->
-        <h1 class = "title" >Coding Quiz</h1>
-        <h2 class = "header-timer">Seconds Left: <span id = "secsLeft">120</span></h2>
-        <h2 class = "header-score">Score: <span id="correctAnswers">0</span></h2>
-        <!-- HIDING ELEMENTS -->
-      <h2 class = "header-results hideEl">Final Score</h2>
+      <h1 class="title">Coding Quiz</h1>
+      <h2 class="header-timer">Seconds Left: <span id="secsLeft">120</span></h2>
+      <h2 class="header-score">Score: <span id="correctAnswers">0</span></h2>
+      <!-- HIDING ELEMENTS -->
+      <h2 class="header-results hideEl">Final Score</h2>
     </header>
 
     <main class="container main">
+      <section id="first-page">
         <div class="instructions">
-          <p class="instructions-prompt">Hello there! This is a 7-question, 2-min coding quiz that will test your knowledge on JavaScript. Every question is worth 10 points, and if you answer incorrectly, the chosen answer will turn red and you will lose 5 seconds. Good luck and enjoy! </p>
-          </div>
+          <p class="instuctions-prompt">Hello there! This is a 7-question, 2-min coding quiz that will test your
+            knowledge on JavaScript. Every question is worth 10 points, and if you answer incorrectly, the chosen answer
+            will turn red and you will lose 5 seconds. Good luck and enjoy! </p>
+        </div>
         <div class="buttons">
           <button id="start-btn" class="start-btn btn">Start</button>
           <button id="score-btn" class="score-btn btn">View Score</button>
         </div>
-    </div>
+      </section>
+      <section class="questionSection hideEl" id="question-section">
+        <div class="question"><span id="question"> When was the last time you did something that makes you
+            happy?</span></div>
+        <div id="answers">
+          <ul id="answer-list">
+            <li><button class='btn' id="btn-A">hi</button></li>
+            <li><button class='btn' id="btn-B">my</button></li>
+            <li><button class='btn' id="btn-C">name is</button></li>
+            <li><button class='btn' id="btn-D">Catalina</button></li>
+          </ul>
+        </div>
+        <!-- CORRECT OR INCORRECT answers -->
+        <div class="hideThis" id="rightWrong">
+          <p class="green hide" id="correct">Correct!</p>
+          <p class="red hide" id="incorrect">Incorrect Answer</p>
+          <!--need to deduct 10 seconds for every wrong answer-->
+        </div>
+      </section>
+      <section class="storing-scores hideEl" id="saving-scores">
+        <form class="storeScores">
+          <div class="hideThis">
+            <h3>Join our ScoreBoard :) </h3>
+            <label for="textPlace">Type your initials to save your score on our website :)</label>
+            <textarea id="textPlace" placeholder="Your Initials..."></textarea>
+            <button id="submit-btn">Submit</button>
+          </div>
+        </form>
+      </section>
 
-    <div class="questionSection hideEl">
-      <p>Question: <span id="question"> When was the last time you did something that makes you happy?</span></p>
-    </div>
+      <section class = "display-scores hideEl" id ="submitted-scores">
+        <ul id="finalScore">
 
+        </ul>
+      </section>
 
-    <form class="storeScores">
-      <label for ="textPlace">Type your initials to save your score on our website :)</label>
-      <textarea id="textPlace" placeholder="Your Initials...."></textarea>
-      <button id="submit-btn">Submit</button>
-  </form>
-    </form>
-
-    <script src = './assets/script.js' ></script>
-  </main>  
+    </main>
+    <script src='./assets/script.js'></script>
   </body>
+
 </html>

@@ -1,11 +1,18 @@
 /* GENERAL STYLING */
+
 main {
   background-color: #191631;
   font-family: "Work Sans";
+  height: 100%;
   width: 100%;
   padding: 3rem 0 3rem 0;
+  color: #fff;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+}
 .container {
   background-color: #fab005;
   width: 100%;
@@ -23,17 +30,14 @@ h1,
 h2 {
   font-size: 1.6rem;
   text-align: center;
-  color: #fff;
 }
 
 /* STARTER PAGE */
 .title {
-  color: #fff;
   font-size: 3.5rem;
 }
 
 .instructions {
-  color: #fff;
   font-weight: 500;
   align-items: center;
   font-size: 1.2rem;
@@ -42,7 +46,6 @@ h2 {
 
 /* QUESTIONS */
 #question {
-  color: #fff;
   font-size: 1.2rem;
   text-indent: 1.5rem;
   background-color: #191631;
@@ -52,13 +55,28 @@ h2 {
   font-weight: 600;
 }
 
+/* ANSWERS */
+li {
+  list-style: none;
+  margin-top: 2rem;
+}
+
 /* BUTTONS */
-.btn {
+.btn,
+#submit-btn {
   background-color: #ff431a;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   border-radius: 1rem;
-  color: #fff;
   font-size: 1rem;
   font-family: "Poppins";
-  margin-bottom: 1rem;
+  color: #fff;
+}
+
+#submit-btn {
+  background-color: #191631;
+  border: none;
+}
+
+.hideEl {
+  display: none;
 }
