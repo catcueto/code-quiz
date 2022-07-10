@@ -21,10 +21,10 @@
     <header class="container">
       <!-- ELEMENTS ON CONSTANT DISPLAY -->
       <h1 class="title">Coding Quiz</h1>
-      <h2 class="header-timer">Seconds Left: <span id="secsLeft">120</span></h2>
+      <h2 class="header-timer">Seconds Left: <span id="secsLeft">105</span></h2>
       <h2 class="header-score">Score: <span id="correctAnswers">0</span></h2>
       <!-- HIDING ELEMENTS -->
-      <h2 class="header-results hideEl">Final Score</h2>
+      <h2 class="header-results hideEl" id="final-score">Final Score</h2>
     </header>
 
     <main class="container main">
@@ -50,10 +50,6 @@
             <li><button class='btn' id="btn-D">Catalina</button></li>
           </ul>
         </div>
-        <!-- CORRECT OR INCORRECT answers -->
-        <div class="hideThis" id="rightWrong">
-          <p class="green hide" id="correct">Correct!</p>
-          <p class="red hide" id="incorrect">Incorrect Answer</p>
           <!--need to deduct 10 seconds for every wrong answer-->
         </div>
       </section>
@@ -63,7 +59,7 @@
             <h3>Join our ScoreBoard :) </h3>
             <label for="textPlace">Type your initials to save your score on our website :)</label>
             <textarea id="textPlace" placeholder="Your Initials..."></textarea>
-            <button id="submit-btn">Submit</button>
+            <button id="submit-btn" type = "submit">Submit</button>
           </div>
         </form>
       </section>
@@ -79,3 +75,4 @@
   </body>
 
 </html>
+

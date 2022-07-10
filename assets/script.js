@@ -3,13 +3,8 @@ console.log("hola");
 
 // STEP 1 --> DEFINE VARIABLES
 var index = 0;
-
-// var content = document.querySelector("#quizContent");
-// content.addEventListener("click", function (event){
-// if (event.target.matches(""){
-
-// })
-// })
+var timeID;
+var scoresArray = [];
 
 // a) questions
 var questions = [
@@ -47,17 +42,17 @@ var C = [
   "Math.round(9.25)",
   "browser.name",
   "var-dogName",
-  "",
+  "I don't know",
   "var dogBreed = ['beagle', 'boxer', 'boston-terrier']",
 ];
 var D = [
   "All answers are incorrect",
   "if i = 10 then",
   "rnd(9.25)",
-  "",
+  "navigator.name",
   "var dogName",
-  "",
-  "",
+  "Neither",
+  "var-dogBreed = ('beagle', 'boxer','boston-terrier')",
 ];
 
 // c) correct answers
@@ -65,7 +60,7 @@ var correctA = [
   "Both the head section and the body section are correct",
   "if (i == 10)",
   "Math.round(9.25)",
-  "navigator.appNames",
+  "navigator.appName",
   "var dogName",
   "Yes",
   "var dogBreed = ['beagle', 'boxer', 'boston-terrier']",
@@ -75,11 +70,12 @@ var correctA = [
 var firstPage = document.querySelector("#first-page");
 var questionSection = document.querySelector("#question-section");
 var savingScores = document.querySelector("#saving-scores");
-var finalScores = document.querySelector("#submitted-scores");
+var displayScoresEl = document.querySelector("#submitted-scores");
+var finalScoreEl = document.querySelector("#finalScore");
 
 // e) Header portions --> SECONDS LEFT and SCORE
 var secRemaining = document.querySelector("#secsLeft"); //line 20
-var secRunning = 120;
+var secRunning = questions.length * 15;
 
 var header = document.querySelector("#title");
 var correctScore = document.querySelector("#correctAnswers");
@@ -92,6 +88,7 @@ var instructions = document.querySelector(".instructions");
 // g) hidden elements
 var hiddenEls = document.querySelector(".questionSection");
 var question = document.querySelector("#question");
+var btn = document.querySelector(".btn");
 var btnA = document.querySelector("#btn-A");
 var btnB = document.querySelector("#btn-B");
 var btnC = document.querySelector("#btn-C");
@@ -101,8 +98,9 @@ var answerList = document.querySelector("#answer-list");
 // STEP 2 --> Add functionality so some elements get removed while others get displayed
 function startQuiz() {
   firstPage.classList.add("hideEl"); //hide first page (instructions)
+  secRemaining.classList.remove("hideEl"); // then displays timer
   questionSection.classList.remove("hideEl"); // then displays question
-
+  startTimer();
   displayQuestions();
 }
 
@@ -113,9 +111,14 @@ function displayQuestions() {
   btnC.textContent = C[index];
   btnD.textContent = D[index];
 }
-function nextQuestion() {
+function nextQuestion(event) {
+  checkAnswer(event);
   index++; // adds 1
-  displayQuestions();
+  if (index < questions.length) {
+    displayQuestions(); //only show question page when there are questions
+  } else {
+    endQuiz();
+  }
 }
 btnA.addEventListener("click", nextQuestion); //when user clicks option A, then he will be directed to the next question
 btnB.addEventListener("click", nextQuestion);
@@ -124,40 +127,71 @@ btnD.addEventListener("click", nextQuestion);
 
 // When the user clicks the START button, the question page displays
 //startButton.addEventListener("click", startQuiz);
+function checkAnswer(event) {
+  console.log(event);
+  if (event.target.matches(".btn")) {
+    if (correctA[index] === event.target.textContent) {
+      score += 10;
+    } else {
+      secRunning = secRunning - 15; //substract 15s from total timer for every wrong answer
+    }
+  }
+}
 
-// STEP 2 --> Correct or Incorrect Prompt when selecting a choice
-
-// answerList.addEventListener("click", function (event) {
-//   alert('Event"');
-//   if (event.target.matches.correctA[index] === event.target.textContent) {
-//     alert("It is correct");
-//     score++;
-//   } else {
-//     alert("Incorrect!");
-//     secRunning = secRunning - 5;
-// });
-
-// 120s timer
-startButton.addEventListener("click", function () {
-  startQuiz();
-  setInterval(function () {
+// 105s timer
+startButton.addEventListener("click", startQuiz);
+function startTimer() {
+  timeID = setInterval(function () {
     secRunning--;
     secRemaining.textContent = secRunning;
 
     // when the timer hits 0
-    if ((secRunning = 0)) {
-      index = 0;
-
-      header.textContent = "Quiz Time is Over! ";
-      question.textContext =
-        "Time is up! " +
-        "You answered: " +
-        scoreCount +
-        " out of " +
-        "correctly.";
+    if (secRunning === 0) {
+      console.log("time is up");
+      endQuiz();
     }
   }, 1000);
+}
+
+// FINAL PAGE
+function endQuiz() {
+  questionSection.classList.add("hideEl"); //hide question page
+  savingScores.classList.remove("hideEl"); //
+  correctScore.textContent = secRemaining.textContent;
+  clearInterval(timeID);
+}
+
+// SEND CORRECT SCORE to LocalStorage
+var textPlace = document.getElementById("textPlace");
+var submitBtn = document.getElementById("submit-btn");
+var storedScoresEl = document.querySelector(".storeScores"); //using form class
+
+// var correctScore = document.querySelector("#correctAnswers");
+storedScoresEl.addEventListener("submit", function (event) {
+  event.preventDefault();
+  scoresArray.push({
+    name: textPlace.value,
+    score: secRemaining.textContent,
+  });
+  console.log(scoresArray);
+  localStorage.setItem("name", JSON.stringify(scoresArray));
+  displayScores();
 });
+
+function displayScores() {
+  displayScoresEl.classList.remove("hideEl");
+  console.log();
+  var scoreData = JSON.parse(localStorage.getItem("name"));
+  if (scoreData) {
+    scoresArray = scoreData;
+    finalScoreEl.textContent = "";
+    for (i = 0; i < scoresArray.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = scoresArray[i].name + " - " + scoresArray[i].score;
+      finalScoreEl.appendChild(li);
+    }
+  }
+}
 
 //function startTimer() {
 // setInterval() calls a function at specified intervals (miliseconds)
@@ -167,6 +201,6 @@ startButton.addEventListener("click", function () {
 
 // 2nd step - Question 1 + choices. Each choice is a button, and when one is selected, it takes me to the next question. When choice is selected, RIGHT or WRONG prompt displays
 
-//3rd step - we hide the question page, and then you're inputting your INITIALS with the score
+//3rd step - we hide the question page, stop timer, and then you're inputting your INITIALS with the score
 
 //4step - After clicking SUBMIT button for INITIALS, we get High Scores page
