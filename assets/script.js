@@ -169,10 +169,12 @@ var storedScoresEl = document.querySelector(".storeScores"); //using form class
 // var correctScore = document.querySelector("#correctAnswers");
 storedScoresEl.addEventListener("submit", function (event) {
   event.preventDefault();
+
   scoresArray.push({
     name: textPlace.value,
     score: secRemaining.textContent,
   });
+
   console.log(scoresArray);
   localStorage.setItem("name", JSON.stringify(scoresArray));
   displayScores();
@@ -181,7 +183,7 @@ storedScoresEl.addEventListener("submit", function (event) {
 function displayScores() {
   displayScoresEl.classList.remove("hideEl");
   console.log();
-  var scoreData = JSON.parse(localStorage.getItem("name"));
+  var scoreData = JSON.parse(localStorage.getItem("name")); //converts it into string
   if (scoreData) {
     scoresArray = scoreData;
     finalScoreEl.textContent = "";
@@ -192,9 +194,6 @@ function displayScores() {
     }
   }
 }
-
-//function startTimer() {
-// setInterval() calls a function at specified intervals (miliseconds)
 
 // PSEUDOCODING //
 // 1st step - Introduction page only (title + instructions + START button). When click on START button, then I go to Question page and TIMER begins
