@@ -4,7 +4,7 @@ console.log("hola");
 // STEP 1 --> DEFINE VARIABLES
 var index = 0;
 var timeID;
-var scoresArray = [];
+var scoresArray = JSON.parse(localStorage.getItem("name", [])); //picking up data from local storage if it exists; [] default value --> empty array
 
 // a) questions
 var questions = [
@@ -80,6 +80,7 @@ var secRunning = questions.length * 15;
 var header = document.querySelector("#title");
 var correctScore = document.querySelector("#correctAnswers");
 var score = 0;
+var headerScore = document.querySelector(".header-score");
 
 // f) START button and instructions - only displayed on first page
 var startButton = document.querySelector("#start-btn");
@@ -182,10 +183,8 @@ storedScoresEl.addEventListener("submit", function (event) {
 
 function displayScores() {
   displayScoresEl.classList.remove("hideEl");
-  console.log();
-  var scoreData = JSON.parse(localStorage.getItem("name")); //converts it into string
-  if (scoreData) {
-    scoresArray = scoreData;
+  console.log(scoresArray);
+  if (scoresArray.length > 0) {
     finalScoreEl.textContent = "";
     for (i = 0; i < scoresArray.length; i++) {
       var li = document.createElement("li");
