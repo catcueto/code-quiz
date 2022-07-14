@@ -80,7 +80,6 @@ var secRunning = questions.length * 15;
 var header = document.querySelector("#title");
 var correctScore = document.querySelector("#correctAnswers");
 var score = 0;
-var headerScore = document.querySelector(".header-score");
 
 // f) START button and instructions - only displayed on first page
 var startButton = document.querySelector("#start-btn");
