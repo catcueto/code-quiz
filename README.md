@@ -11,3 +11,5 @@ This fun and interactive quiz was created using HTML, CSS, and JavaScript. Local
 ![alt text](./assets/img/screenshot-2.PNG)
 
 ![alt text](./assets/img/Screenshot-3.PNG)
+
+Link to deployed application: https://catcueto.github.io/code-quiz/
